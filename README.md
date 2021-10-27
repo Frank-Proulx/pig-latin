@@ -4,11 +4,26 @@ Test: "It will add 'way' to the end of words that begin with a vowel."
 Code: pigLatin("a");
 Expected Output: "away" 
 
+Test: "It will check if the letter is a vowel and add 'way' to the letter if so."
+Code: pigLatin("a");
+Expected Output: "away"
 
+Describe: vowelChecker()
 
+Test: "It will check a word to see if it begins with a vowel and if so return true"
+Code: vowelChecker("a");
+Expected Output: true
 
+Describe: wordSplitter()
 
+Test: "It will turn a word into an array and return that array"
+Code: wordSplitter("word");
+Expected Output: ["w", "o", "r", "d"]
 
+Describe: letterChecker()
+Test: "It will check if all the characters in a word are letters and then return the letters as an array"
+Code: letterChecker("word.");
+Expected Output: ["w", "o", "r", "d"]
 
 
 
