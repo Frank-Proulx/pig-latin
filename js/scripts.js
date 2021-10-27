@@ -18,19 +18,40 @@ function letterChecker(word) {
   return checked;
 }
 
-function vowelChecker(letter) {
+function vowelChecker(word) {
+  let tested = letterChecker(word);
   let vowelArray = ["a", "e", "i", "o", "u"];
   let checker = false;
   vowelArray.forEach(function(element) {
-    if (element === letter) {
+    if (element === tested[0]) {
       checker = true;
     }
   });
   return checker;
 }
 
-function pigLatin(letter) {
-  if (vowelChecker(letter)) {
-    return letter + "way";
+function startsConsonant(word){
+  let letterArray = word.split('');
+  for (let i=0; i < letterArray.length; i++) {
+    if (!vowelChecker(letterArray.join(''))) {
+      letterArray.push(letterArray[0]);
+      letterArray.shift();
+    } else {
+      break;
+    }
+  };
+  if (letterArray[letterArray.length - 1].toLowerCase() === 'q' && letterArray[0].toLowerCase() === "u") {
+    letterArray.push(letterArray[0]);
+    letterArray.shift();  
+  }
+  return letterArray.join('') + "ay";
+}
+
+
+function pigLatin(word) {
+  if (vowelChecker(word)) {
+    return word + "way";
+  } else {
+
   }
 }
