@@ -38,7 +38,7 @@ function startsConsonant(word){
       break;
     }
   };
-  if (letterArray[letterArray.length - 1].toLowerCase() === 'q' && letterArray[0].toLowerCase() === "u") {
+  if (letterArray[letterArray.length - 1].toLowerCase() === "q" && letterArray[0].toLowerCase() === "u") {
     letterArray.push(letterArray[0]);
     letterArray.shift();  
   }
@@ -57,6 +57,8 @@ function pigLatin(passage) {
   });
   return newArray.join(" ");
 }
+
+// UI Logic - doesn't deal with punctuation but should cover everything else
 
 $(document).ready(function() {
   $("form#formOne").submit(function(event) {
