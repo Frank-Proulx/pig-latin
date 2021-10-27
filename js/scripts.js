@@ -1,11 +1,9 @@
-// Utility Logic
+// Business Logic
 
 function wordSplitter(word) {
   let split = word.split("");
   return split; 
 }
-
-// Business Logic
 
 function letterChecker(word) {
   let checking = wordSplitter(word);
@@ -47,11 +45,23 @@ function startsConsonant(word){
   return letterArray.join('') + "ay";
 }
 
-
-function pigLatin(word) {
-  if (vowelChecker(word)) {
-    return word + "way";
-  } else {
-
-  }
+function pigLatin(passage) {
+  let passageArray = passage.split(" ");
+  let newArray = [];
+  passageArray.forEach(function(element) {
+    if (vowelChecker(element)) {
+      newArray.push(element + "way");
+    } else {
+      newArray.push(startsConsonant(element));
+    }
+  });
+  return newArray.join(" ");
 }
+
+$(document).ready(function() {
+  $("form#formOne").submit(function(event) {
+    event.preventDefault();
+    let phrase = $("#latin").val();
+    $("#output").text(pigLatin(phrase));
+  })
+});
